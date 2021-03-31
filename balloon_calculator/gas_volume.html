@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+    <style>
+        input[type=number], select {
+            margin: 5px;
+            display: block;
+        }
+
+        select[id=lifting_gas_density], select {
+            margin: 5px;
+            display: inline-block;
+        }
+    </style>
+
+    <head>
+        <title>balloon lifting gas volume calculator</title>
+    </head>
+
+    <body>
+        <h2>balloon lifting gas volume calculator</h2>
+        <h3>by Amon Schumann / DO4AS</h3>
+
+        <form id="balloon_gas_volume_calculator">
+            <label for="lifting_mass">lifting mass [kg])</label>
+            <input id="lifting_mass" type="number" oninput="calculate_gas_volume()"><br>
+
+            <label for="air_density">air density [kg/m<sup>3</sup>]</label>
+            <input id="air_density" type="number" value="1.225" oninput="calculate_gas_volume()"><br>
+
+            <label for="lifting_gas_density">lifting gas density [kg/m<sup>3</sup>]</label>
+
+            <select id="lifting_gas_density_selection" onchange="lifting_gas_density_selection_change()">
+                  <option value="0.178">helium</option>
+                  <option value="0.083">hydrogen</option>
+            </select>
+
+            <input id="lifting_gas_density" type="number" value="0.178" oninput="calculate_gas_volume()"><br>
+
+            <input type="button" onclick="calculate_gas_volume()" value="calculate">
+
+            <label id="gas_volume"></label>
+        </form>
+    </body>
+
+    <script>
+        function calculate_gas_volume()
+        {
+            lifting_mass            = document.getElementById("lifting_mass").value;
+            air_density             = document.getElementById("air_density").value;
+            lifting_gas_density     = document.getElementById("lifting_gas_density").value;
+
+            gas_volume = lifting_mass/(air_density-lifting_gas_density);
+
+            document.getElementById("gas_volume").innerHTML
+            = "lifting gas volume = " + Math.round(gas_volume*10000)/10000 + " m" + "3".sup()
+            + " = " + Math.round(gas_volume*10000)/10 + " &#8467";
+        }
+
+        function lifting_gas_density_selection_change()
+        {
+            document.getElementById("lifting_gas_density").value = document.getElementById("lifting_gas_density_selection").value;
+            calculate_gas_volume();
+        }
+    </script>
+
+</html>

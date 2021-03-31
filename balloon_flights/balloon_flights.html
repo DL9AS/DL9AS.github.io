@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <script src="launch_31.03.2021.js"></script>
+ 
+    <style>
+        body, html { 
+            height:100%;
+            width:100%;
+        }
+
+        iframe {
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+
+            height:50%;
+            width:98%;
+        }
+
+        .osm_map{ 
+            height:50%; 
+            width:98%; 
+        }
+    </style>
+    
+    <head>
+        <title>balloon flights</title>
+    </head>
+
+    <body>
+        <h1 style="text-align: center;"><strong>Balloon flights</strong></h1>
+        <h3 style="text-align: center;"><strong>by Amon Schumann / DO4AS</strong></h3>
+        
+        <h3><strong>next balloon flight:</strong></h3>
+        <p style="padding-left: 30px;"><strong>launch date:</strong>&nbsp;pending</p>
+        <p style="padding-left: 30px;"><strong>mission comment:</strong>&nbsp;This balloon flight is intended to showcase the capabilities of the ultralight radiosonde. The freelift is approximately 2-3g.</p>
+        <p style="padding-left: 30px;"><strong>last positions:</strong></p>
+        <div id="future" class="osm_map"></div>
+        
+        <h3><strong>latest balloon flight:</strong></h3>
+        <p style="padding-left: 30px;"><strong>launch date:</strong>&nbsp;31.03.2021 ~ 8:00 UTC</p>
+        <p style="padding-left: 30px;"><strong>mission comment:</strong>&nbsp;This balloon flight represented a targeted test of the strength of a commercial foil balloon. The foil balloon successfully burst at a flight altitude of about 9000m.</p>
+        <p style="padding-left: 30px;"><strong>last positions:</strong></p>
+        <div id="13.03.2021" class="osm_map"></div>
+        
+        <p>Note: This balloon flight archive will be expanded in the future.</p>
+        <p><i>latst update: 31.03.2021</i></p>
+    </body>
+    
+    <script>
+        
+        var map_array = [];
+        var polyline_array = [];
+        
+        function generate_map_with_polyline(map_name, path_variable)
+        {
+            // initialise leaflet map
+            map_array.push (L.map(map_name).setView([52, 13], 10));
+            
+            // add openstreetmap layer
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map_array[map_array.length - 1]);
+
+            // add polyline from pathvariable
+            polyline_array.push (L.polyline(path_variable, {color: 'red'}).addTo(map_array[map_array.length - 1]));
+
+            // zoom the map to the polyline
+            map_array[map_array.length - 1].fitBounds(polyline_array[polyline_array.length - 1].getBounds());
+        }
+        
+        function generate_map_without_polyline(map_name)
+        {
+            // initialise leaflet map for
+            map_array.push (L.map(map_name).setView([52.5, 13.4], 8));
+            
+            // add openstreetmap layer 
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map_array[map_array.length - 1]);
+        }
+        
+        // add map for next balloon flight
+        generate_map_without_polyline("future");
+        
+        // add map for latest balloon flight
+        generate_map_with_polyline("13.03.2021", path_31032021)
+    </script>
+    
+</html>

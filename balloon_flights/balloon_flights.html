@@ -4,7 +4,14 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     
+    <!-- leaflet fullscreen plugin -->
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+    
+    <!-- import balloon flight path data -->
     <script src="launch_31.03.2021.js"></script>
+    <script src="launch_30.12.2020.js"></script>
+    <script src="launch_08.11.2020.js"></script>
  
     <style>
         body, html { 
@@ -42,13 +49,25 @@
         <div id="future" class="osm_map"></div>
         
         <h3><strong>latest balloon flight:</strong></h3>
-        <p style="padding-left: 30px;"><strong>launch date:</strong>&nbsp;31.03.2021 ~ 8:00 UTC</p>
+        <p style="padding-left: 30px;"><strong>launch date:</strong>&nbsp;31.03.2021 ~ 08:00 UTC</p>
         <p style="padding-left: 30px;"><strong>mission comment:</strong>&nbsp;This balloon flight represented a targeted test of the strength of a commercial foil balloon. The foil balloon successfully burst at a flight altitude of about 9000m.</p>
         <p style="padding-left: 30px;"><strong>last positions:</strong></p>
         <div id="13.03.2021" class="osm_map"></div>
         
+        <h3><strong>longest balloon flight:</strong></h3>
+        <p style="padding-left: 30px;"><strong>launch date:</strong>&nbsp;30.12.2020 ~ 08:00 UTC</p>
+        <p style="padding-left: 30px;"><strong>mission comment:</strong>&nbsp;This balloon flight showed the possibilities of foil balloons and ultralight radiosondes. The radiosonde has traveled a total of 13 days in the stratopshare.</p>
+        <p style="padding-left: 30px;"><strong>last positions:</strong></p>
+        <div id="30.12.2020" class="osm_map"></div>
+        
+        <h3><strong>first balloon flight:</strong></h3>
+        <p style="padding-left: 30px;"><strong>launch date:</strong>&nbsp;08.11.2020 ~ 07:00 UTC</p>
+        <p style="padding-left: 30px;"><strong>mission comment:</strong>&nbsp;The first balloon flight was successful, but had too little freelift.</p>
+        <p style="padding-left: 30px;"><strong>last positions:</strong></p>
+        <div id="08.11.2020" class="osm_map"></div>
+        
         <p>Note: This balloon flight archive will be expanded in the future.</p>
-        <p><i>latst update: 31.03.2021</i></p>
+        <p><i>latst update: 04.04.2021</i></p>
     </body>
     
     <script>
@@ -59,7 +78,7 @@
         function generate_map_with_polyline(map_name, path_variable)
         {
             // initialise leaflet map
-            map_array.push (L.map(map_name).setView([52, 13], 10));
+            map_array.push (L.map(map_name, {fullscreenControl: true}).setView([52, 13], 10));
             
             // add openstreetmap layer
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -71,6 +90,10 @@
 
             // zoom the map to the polyline
             map_array[map_array.length - 1].fitBounds(polyline_array[polyline_array.length - 1].getBounds());
+            
+            // add high altitude balloon with radiosonde logo at end of the path
+            var high_altitude_balloon_with_radiosonde_logo = L.icon({iconUrl: 'high_altitude_balloon_with_radiosonde_logo.png', iconSize:     [40, 55],  iconAnchor:   [20, 55-2],});
+            L.marker([path_variable[path_variable.length - 1][0], path_variable[path_variable.length - 1][1]], {icon: high_altitude_balloon_with_radiosonde_logo}).addTo(map_array[map_array.length - 1]);
         }
         
         function generate_map_without_polyline(map_name)
@@ -89,6 +112,12 @@
         
         // add map for latest balloon flight
         generate_map_with_polyline("13.03.2021", path_31032021)
+        
+        // add map for longest balloon flight
+        generate_map_with_polyline("30.12.2020", path_30122020)
+        
+        // add map for first balloon flight
+        generate_map_with_polyline("08.11.2020", path_08112020)
     </script>
     
 </html>

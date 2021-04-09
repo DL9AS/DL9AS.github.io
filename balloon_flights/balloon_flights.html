@@ -67,7 +67,7 @@
         <div id="08.11.2020" class="osm_map"></div>
         
         <p>Note: This balloon flight archive will be expanded in the future.</p>
-        <p><i>latst update: 04.04.2021</i></p>
+        <p><i>latst update: 09.04.2021</i></p>
     </body>
     
     <script>
@@ -75,7 +75,7 @@
         var map_array = [];
         var polyline_array = [];
         
-        function generate_map_with_polyline(map_name, path_variable)
+        function generate_map_with_polyline(map_name, path_variable, balloon_icon_size)
         {
             // initialise leaflet map
             map_array.push (L.map(map_name, {fullscreenControl: true}).setView([52, 13], 10));
@@ -92,7 +92,7 @@
             map_array[map_array.length - 1].fitBounds(polyline_array[polyline_array.length - 1].getBounds());
             
             // add high altitude balloon with radiosonde logo at end of the path
-            var high_altitude_balloon_with_radiosonde_logo = L.icon({iconUrl: 'high_altitude_balloon_with_radiosonde_logo.png', iconSize:     [40, 55],  iconAnchor:   [20, 55-2],});
+            var high_altitude_balloon_with_radiosonde_logo = L.icon({iconUrl: 'high_altitude_balloon_with_radiosonde_logo.png', iconSize:     [355*balloon_icon_size, 495*balloon_icon_size],  iconAnchor:   [(355*balloon_icon_size)/2, (495*balloon_icon_size)-2],});
             L.marker([path_variable[path_variable.length - 1][0], path_variable[path_variable.length - 1][1]], {icon: high_altitude_balloon_with_radiosonde_logo}).addTo(map_array[map_array.length - 1]);
         }
         
@@ -111,13 +111,13 @@
         generate_map_without_polyline("future");
         
         // add map for latest balloon flight
-        generate_map_with_polyline("13.03.2021", path_31032021)
+        generate_map_with_polyline("13.03.2021", path_31032021, 0.08)
         
         // add map for longest balloon flight
-        generate_map_with_polyline("30.12.2020", path_30122020)
+        generate_map_with_polyline("30.12.2020", path_30122020, 0.08)
         
         // add map for first balloon flight
-        generate_map_with_polyline("08.11.2020", path_08112020)
+        generate_map_with_polyline("08.11.2020", path_08112020, 0.08)
     </script>
     
 </html>

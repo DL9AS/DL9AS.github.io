@@ -11,8 +11,8 @@ function generate_map_with_polyline(map_name, path_variable, balloon_icon_size)
     map_array.push (L.map(map_name, {fullscreenControl: true}).setView([52, 13], 10));
 
     // add openstreetmap layer
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
     }).addTo(map_array[map_array.length - 1]);
 
     // add polyline from pathvariable
@@ -32,7 +32,8 @@ function generate_map_without_polyline(map_name)
     map_array.push (L.map(map_name).setView([52.5, 13.4], 8));
 
     // add openstreetmap layer 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+        
     }).addTo(map_array[map_array.length - 1]);
 }

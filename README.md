@@ -1,5 +1,5 @@
 # DO4AS.github.io
 
-see [high altitude balloon calculators](/balloon_calculator/balloon_calculator.html)
+see [high altitude balloon flights](https://do4as.github.io/)
 
-see [high altitude balloon flights](balloon_flights/balloon_flights.html)
+see [high altitude balloon calculators](https://do4as.github.io/balloon_calculator/balloon_calculator.html)

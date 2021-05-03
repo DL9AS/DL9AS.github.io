@@ -22,7 +22,11 @@ function generate_map_with_polyline(map_name, path_variable, balloon_icon_size)
     map_array[map_array.length - 1].fitBounds(polyline_array[polyline_array.length - 1].getBounds());
 
     // add high altitude balloon with radiosonde logo at end of the path
-    var high_altitude_balloon_with_radiosonde_logo = L.icon({iconUrl: 'high_altitude_balloon_with_radiosonde_logo.png', iconSize:     [355*balloon_icon_size, 495*balloon_icon_size],  iconAnchor:   [(355*balloon_icon_size)/2, (495*balloon_icon_size)-2],});
+    var high_altitude_balloon_with_radiosonde_logo_width = 254;
+    var high_altitude_balloon_with_radiosonde_logo_height = 488;
+    
+    var high_altitude_balloon_with_radiosonde_logo = L.icon({iconUrl: 'high_altitude_balloon_with_radiosonde_logo.png', iconSize:     [high_altitude_balloon_with_radiosonde_logo_width*balloon_icon_size, high_altitude_balloon_with_radiosonde_logo_height*balloon_icon_size],  iconAnchor:   [(high_altitude_balloon_with_radiosonde_logo_width*balloon_icon_size)/2, (high_altitude_balloon_with_radiosonde_logo_height*balloon_icon_size)-2],});
+    
     L.marker([path_variable[path_variable.length - 1][0], path_variable[path_variable.length - 1][1]], {icon: high_altitude_balloon_with_radiosonde_logo}).addTo(map_array[map_array.length - 1]);
 }
 

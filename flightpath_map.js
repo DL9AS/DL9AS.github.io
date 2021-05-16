@@ -5,7 +5,7 @@
 var map_array = [];
 var polyline_array = [];
 
-function generate_map_with_polyline(map_name, path_variable, balloon_icon_size)
+function generate_map_with_polyline(map_name, path_variable, balloon_icon_size, map_zoom_padding_x, map_zoom_padding_y)
 {
     // initialise leaflet map
     map_array.push (L.map(map_name, {fullscreenControl: true}).setView([52, 13], 10));
@@ -17,9 +17,10 @@ function generate_map_with_polyline(map_name, path_variable, balloon_icon_size)
 
     // add polyline from pathvariable
     polyline_array.push (L.polyline(path_variable, {color: 'red'}).addTo(map_array[map_array.length - 1]));
-
+    
     // zoom the map to the polyline
-    map_array[map_array.length - 1].fitBounds(polyline_array[polyline_array.length - 1].getBounds());
+    var bounds =  polyline_array[polyline_array.length - 1].getBounds();
+    map_array[map_array.length - 1].fitBounds(bounds, {padding: [map_zoom_padding_x, map_zoom_padding_y]});
 
     // add high altitude balloon with radiosonde logo at end of the path
     var high_altitude_balloon_with_radiosonde_logo_width = 254;

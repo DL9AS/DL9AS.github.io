@@ -20,6 +20,7 @@
     <script src="flightpath_map.js"></script>
     
     <!-- balloon flight path data import -->
+    <script src="balloon_flight_data/launch_15.05.2021.js"></script>
     <script src="balloon_flight_data/launch_31.03.2021.js"></script>
     <script src="balloon_flight_data/launch_30.12.2020.js"></script>
     <script src="balloon_flight_data/launch_08.11.2020.js"></script>
@@ -54,7 +55,7 @@
         }
         
         .altitude_chart { 
-            height:35%; 
+            height:35vh; 
             width:98%; 
         }
         
@@ -86,6 +87,15 @@
         
         <div class="card">
             <h3><strong>latest balloon flight:</strong></h3>
+            <p style="padding-left: 30px;"><strong>launch date:</strong>&nbsp;15.05.2021 ~ 07:30 UTC</p>
+            <p style="padding-left: 30px;"><strong>mission comment:</strong>&nbsp;This balloon flight had a little too much freelift. The balloon burst shortly before it reached the floating altitude.</p>
+            <p style="padding-left: 30px;"><strong>last positions:</strong></p>
+            <div id="15.05.2021_flightpath_map" class="osm_map"></div>
+            <div id="15.05.2021_altitude_chart" class="altitude_chart"></div>
+        </div>
+        
+        <div class="card">
+            <h3><strong>test balloon flight:</strong></h3>
             <p style="padding-left: 30px;"><strong>launch date:</strong>&nbsp;31.03.2021 ~ 08:00 UTC</p>
             <p style="padding-left: 30px;"><strong>mission comment:</strong>&nbsp;This balloon flight represented a targeted test of the strength of a commercial foil balloon. The foil balloon successfully burst at a flight altitude of about 9000m.</p>
             <p style="padding-left: 30px;"><strong>last positions:</strong></p>
@@ -110,7 +120,7 @@
         </div>
         
         <p>Note: This balloon flight archive will be expanded in the future.</p>
-        <p><i>latst update: 02.05.2021</i></p>
+        <p><i>latst update: 15.05.2021</i></p>
     </body>
     
     <script>                
@@ -118,15 +128,20 @@
         generate_map_without_polyline("future");
         
         // add map for latest balloon flight
-        generate_map_with_polyline("13.03.2021_flightpath_map", path_31032021, 0.14);
+        generate_map_with_polyline("15.05.2021_flightpath_map", path_15052021, 0.14, 0, 25);
         // add altitude chart for latest balloon flight
+        generate_altitude_chart("15.05.2021_altitude_chart", altitude_15052021);
+        
+        // add map for test balloon flight
+        generate_map_with_polyline("13.03.2021_flightpath_map", path_31032021, 0.14, 0, 0);
+        // add altitude chart for test balloon flight
         generate_altitude_chart("13.03.2021_altitude_chart", altitude_31032021);
         
         // add map for longest balloon flight
-        generate_map_with_polyline("30.12.2020_flightpath_map", path_30122020, 0.14);
+        generate_map_with_polyline("30.12.2020_flightpath_map", path_30122020, 0.14, 0, 0);
         
         // add map for first balloon flight
-        generate_map_with_polyline("08.11.2020_flightpath_map", path_08112020, 0.14);
+        generate_map_with_polyline("08.11.2020_flightpath_map", path_08112020, 0.14, 0, 0);
     </script>
     
 </html>

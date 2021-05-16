@@ -37,7 +37,6 @@ function generate_altitude_chart(chart_name, altitude_variable)
     // altitude chart axis layout configuration
     var altitude_chart_layout =
         {
-            title: 'altitude profile',
             font: 
             {
                 family: 'Times New Roman',

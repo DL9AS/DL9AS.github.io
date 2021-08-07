@@ -8,7 +8,7 @@
     <!-- leaflet fullscreen plugin import -->
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
-    
+
     <!-- plotly and moment import -->
     <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js'></script>
@@ -20,10 +20,11 @@
     <script src="flightpath_map.js"></script>
     
     <!-- balloon flight path data import -->
-    <script src="balloon_flight_data/launch_15.05.2021.js"></script>
-    <script src="balloon_flight_data/launch_31.03.2021.js"></script>
-    <script src="balloon_flight_data/launch_30.12.2020.js"></script>
-    <script src="balloon_flight_data/launch_08.11.2020.js"></script>
+    <script src="balloon_flight_data/launch_2021.07.13.js"></script>
+    <script src="balloon_flight_data/launch_2021.05.15.js"></script>
+    <script src="balloon_flight_data/launch_2021.03.31.js"></script>
+    <script src="balloon_flight_data/launch_2020.12.30.js"></script>
+    <script src="balloon_flight_data/launch_2020.11.08.js"></script>
  
     <style>
         body, html {
@@ -42,6 +43,16 @@
             width:98%;
         }
 
+        summary {
+            margin-top: 20px;
+            padding: 10px;
+            width: 96.5%;
+            background-color: #f1f1f1;
+            border: none;
+            box-shadow: 2px 2px 3px #bbbbbb;
+            cursor: pointer;
+        }
+        
         .card {
             background-color: white;
             
@@ -49,7 +60,7 @@
             padding: 20px;
         }
                 
-        .osm_map{ 
+        .osm_map { 
             height:50vh; 
             width:98%; 
         }
@@ -80,18 +91,60 @@
         <div class="card">
             <h3><strong>next balloon flight:</strong></h3>
             <p style="padding-left: 30px;"><strong>launch date:</strong>&nbsp;pending</p>
-            <p style="padding-left: 30px;"><strong>mission comment:</strong>&nbsp;This balloon flight is intended to showcase the capabilities of the ultralight radiosonde. The freelift is approximately 2-3g.</p>
+            <p style="padding-left: 30px;"><strong>mission comment:</strong>&nbsp;pending</p>
             <p style="padding-left: 30px;"><strong>last positions:</strong></p>
-            <div id="future" class="osm_map"></div>
+            <div id="future" class="osm_map"></div>            
         </div>
         
         <div class="card">
             <h3><strong>latest balloon flight:</strong></h3>
+            <p style="padding-left: 30px;"><strong>launch date:</strong>&nbsp;13.07.2021 ~ 07:00 UTC</p>
+            <p style="padding-left: 30px;"><strong>mission comment:</strong>&nbsp;This balloon flight was intended to demonstrate the capabilities of the ultralight radiosonde. The freelift was about 1g. The balloon floated successfully for at least 6 days at an altitude of 9500m.</p>
+            <p style="padding-left: 30px;"><strong>last positions:</strong></p>
+            <div id="13.07.2021_flightpath_map" class="osm_map"></div>
+
+            <details>
+                <summary><strong>flight report day 1</strong></summary>
+                <embed src="balloon_flight_data/flight-report_2021.07.13.pdf#toolbar=0" type="application/pdf" height="800vh" width="98%">
+            </details>
+            
+            <details>
+                <summary><strong>flight report day 2</strong></summary>
+                <embed src="balloon_flight_data/flight-report_2021.07.14.pdf#toolbar=0" type="application/pdf" height="800vh" width="98%">
+            </details>
+            
+            <details>
+                <summary><strong>flight report day 3</strong></summary>
+                <embed src="balloon_flight_data/flight-report_2021.07.15.pdf#toolbar=0" type="application/pdf" height="800vh" width="98%">
+            </details>
+            
+            <details>
+                <summary><strong>flight report day 4</strong></summary>
+                <embed src="balloon_flight_data/flight-report_2021.07.16.pdf#toolbar=0" type="application/pdf" height="800vh" width="98%">
+            </details>
+            
+            <details>
+                <summary><strong>flight report day 5</strong></summary>
+                <embed src="balloon_flight_data/flight-report_2021.07.17.pdf#toolbar=0" type="application/pdf" height="800vh" width="98%">
+            </details>
+            
+            <details>
+                <summary><strong>flight report day 6</strong></summary>
+                <embed src="balloon_flight_data/flight-report_2021.07.18.pdf#toolbar=0" type="application/pdf" height="800vh" width="98%">
+            </details>
+        </div>
+        
+        <div class="card">
+            <h3><strong>unsuccessful balloon flight:</strong></h3>
             <p style="padding-left: 30px;"><strong>launch date:</strong>&nbsp;15.05.2021 ~ 07:30 UTC</p>
             <p style="padding-left: 30px;"><strong>mission comment:</strong>&nbsp;This balloon flight had a little too much freelift. The balloon burst shortly before it reached the floating altitude.</p>
             <p style="padding-left: 30px;"><strong>last positions:</strong></p>
             <div id="15.05.2021_flightpath_map" class="osm_map"></div>
-            <div id="15.05.2021_altitude_chart" class="altitude_chart"></div>
+            
+            <details>
+                <summary><strong>flight report day 1</strong></summary>
+                <embed src="balloon_flight_data/flight-report_2021.05.15.pdf#toolbar=0" type="application/pdf" height="800vh" width="98%">
+            </details>
         </div>
         
         <div class="card">
@@ -100,7 +153,12 @@
             <p style="padding-left: 30px;"><strong>mission comment:</strong>&nbsp;This balloon flight represented a targeted test of the strength of a commercial foil balloon. The foil balloon successfully burst at a flight altitude of about 9000m.</p>
             <p style="padding-left: 30px;"><strong>last positions:</strong></p>
             <div id="13.03.2021_flightpath_map" class="osm_map"></div>
-            <div id="13.03.2021_altitude_chart" class="altitude_chart"></div>
+            <!-- <div id="13.03.2021_altitude_chart" class="altitude_chart"></div> -->
+            
+            <details>
+                <summary><strong>flight report day 1</strong></summary>
+                <embed src="balloon_flight_data/flight-report_2021.03.31.pdf#toolbar=0" type="application/pdf" height="800vh" width="98%">
+            </details>
         </div>
         
         <div class="card">
@@ -120,7 +178,7 @@
         </div>
         
         <p>Note: This balloon flight archive will be expanded in the future.</p>
-        <p><i>latst update: 15.05.2021</i></p>
+        <p><i>latst update: 07.08.2021</i></p>
     </body>
     
     <script>                
@@ -128,14 +186,15 @@
         generate_map_without_polyline("future");
         
         // add map for latest balloon flight
+        generate_map_with_polyline("13.07.2021_flightpath_map", path_13072021, 0.14, 0, 50);
+
+        // add map for unsuccessful balloon flight
         generate_map_with_polyline("15.05.2021_flightpath_map", path_15052021, 0.14, 0, 50);
-        // add altitude chart for latest balloon flight
-        generate_altitude_chart("15.05.2021_altitude_chart", altitude_15052021);
         
         // add map for test balloon flight
         generate_map_with_polyline("13.03.2021_flightpath_map", path_31032021, 0.14, 0, 0);
         // add altitude chart for test balloon flight
-        generate_altitude_chart("13.03.2021_altitude_chart", altitude_31032021);
+        // generate_altitude_chart("13.03.2021_altitude_chart", altitude_31032021);
         
         // add map for longest balloon flight
         generate_map_with_polyline("30.12.2020_flightpath_map", path_30122020, 0.14, 0, 0);

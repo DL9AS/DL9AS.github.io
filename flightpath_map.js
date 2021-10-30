@@ -16,7 +16,7 @@ function generate_map_with_polyline(map_name, path_variable, balloon_icon_size, 
     }).addTo(map_array[map_array.length - 1]);
 
     // add polyline from pathvariable
-    polyline_array.push (L.polyline(path_variable, {color: 'red'}).addTo(map_array[map_array.length - 1]));
+    polyline_array.push (L.polyline(path_variable, {color: '#222222'}).addTo(map_array[map_array.length - 1]));
     
     // zoom the map to the polyline
     var bounds =  polyline_array[polyline_array.length - 1].getBounds();

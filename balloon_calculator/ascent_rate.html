@@ -10,32 +10,59 @@
 
     <head>
         <title>balloon ascent rate calculator</title>
+
+        <!-- google fonts import -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght,ital@400,0;1&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Pridi:wght,ital@200..700,0;1&display=swap" rel="stylesheet">
+
+        <!-- stylesheet import -->
+        <link rel="stylesheet" href="/style.css">
     </head>
 
     <body>
-        <h2>balloon ascent rate calculator</h2>
-        <h3>by Amon Schumann / DO4AS</h3>
+        <header>
+            <hr>
+            <hr>
+            <hr>
+            <hr>
+                <div>
+                    <h1>Balloon flights</h1> <br/>
+                    <h2>by Amon Schumann / DO4AS</h2>
+                </div>
+            <hr>
+            <hr>
+            <hr>
+            <hr>
+        </header>
 
-        <form id="balloon-ascent-rate-calculator">
-            <label for="lifting_mass">additional lifting mass [kg]</label>
-            <input id="lifting_mass" type="number" oninput="calculate_ascent_rate()"><br>
+        <main>
+            <h1>balloon ascent rate calculator</h1>
 
-            <label for="balloon_area">balloon surface area [m<sup>2</sup>]</label>
-            <input id="balloon_area" type="number" oninput="calculate_ascent_rate()"><br>
-
-            <label for="air_density">medium / air density [kg/m<sup>3</sup>]</label>
-            <input id="air_density" type="number" value="1.225" oninput="calculate_ascent_rate()"><br>
-
-            <label for="drag">drag coefficient</label>
-            <input id="drag" type="number" value="0.280" oninput="calculate_ascent_rate()"><br>
-
-            <label for="gravity_constant">gravity of Earth [m/s<sup>2</sup>]</label>
-            <input id="gravity_constant" type="number" value="9.81" oninput="calculate_ascent_rate()"><br>
-
-            <input type="button" onclick="calculate_ascent_rate()" value="calculate">
-
-            <label id="ascent_rate"></label>
-        </form>
+            <div class="calc">
+                <form id="balloon-ascent-rate-calculator">
+                    <label for="lifting_mass">additional lifting mass [kg]</label>
+                    <input id="lifting_mass" type="number" oninput="calculate_ascent_rate()"><br>
+        
+                    <label for="balloon_area">balloon surface area [m<sup>2</sup>]</label>
+                    <input id="balloon_area" type="number" oninput="calculate_ascent_rate()"><br>
+        
+                    <label for="air_density">medium / air density [kg/m<sup>3</sup>]</label>
+                    <input id="air_density" type="number" value="1.225" oninput="calculate_ascent_rate()"><br>
+        
+                    <label for="drag">drag coefficient</label>
+                    <input id="drag" type="number" value="0.280" oninput="calculate_ascent_rate()"><br>
+        
+                    <label for="gravity_constant">gravity of Earth [m/s<sup>2</sup>]</label>
+                    <input id="gravity_constant" type="number" value="9.81" oninput="calculate_ascent_rate()"><br>
+        
+                    <input type="button" onclick="calculate_ascent_rate()" value="calculate">
+        
+                    <label id="ascent_rate"></label>
+                </form>
+            </div>
+            </main>
     </body>
 
     <script>

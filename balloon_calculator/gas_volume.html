@@ -15,32 +15,59 @@
 
     <head>
         <title>balloon lifting gas volume calculator</title>
+
+        <!-- google fonts import -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght,ital@400,0;1&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Pridi:wght,ital@200..700,0;1&display=swap" rel="stylesheet">
+
+        <!-- stylesheet import -->
+        <link rel="stylesheet" href="/style.css">
     </head>
 
     <body>
-        <h2>balloon lifting gas volume calculator</h2>
-        <h3>by Amon Schumann / DO4AS</h3>
+        <header>
+            <hr>
+            <hr>
+            <hr>
+            <hr>
+                <div>
+                    <h1>Balloon flights</h1> <br/>
+                    <h2>by Amon Schumann / DO4AS</h2>
+                </div>
+            <hr>
+            <hr>
+            <hr>
+            <hr>
+        </header>
 
-        <form id="balloon_gas_volume_calculator">
-            <label for="lifting_mass">lifting mass [kg])</label>
-            <input id="lifting_mass" type="number" oninput="calculate_gas_volume()"><br>
+        <main>
+            <h1>balloon lifting gas volume calculator</h2>
 
-            <label for="air_density">air density [kg/m<sup>3</sup>]</label>
-            <input id="air_density" type="number" value="1.225" oninput="calculate_gas_volume()"><br>
-
-            <label for="lifting_gas_density">lifting gas density [kg/m<sup>3</sup>]</label>
-
-            <select id="lifting_gas_density_selection" onchange="lifting_gas_density_selection_change()">
-                  <option value="0.178">helium</option>
-                  <option value="0.083">hydrogen</option>
-            </select>
-
-            <input id="lifting_gas_density" type="number" value="0.178" oninput="calculate_gas_volume()"><br>
-
-            <input type="button" onclick="calculate_gas_volume()" value="calculate">
-
-            <label id="gas_volume"></label>
-        </form>
+            <div class="calc">
+                <form id="balloon_gas_volume_calculator">
+                    <label for="lifting_mass">lifting mass [kg])</label>
+                    <input id="lifting_mass" type="number" oninput="calculate_gas_volume()"><br>
+        
+                    <label for="air_density">air density [kg/m<sup>3</sup>]</label>
+                    <input id="air_density" type="number" value="1.225" oninput="calculate_gas_volume()"><br>
+        
+                    <label for="lifting_gas_density">lifting gas density [kg/m<sup>3</sup>]</label>
+        
+                    <select id="lifting_gas_density_selection" onchange="lifting_gas_density_selection_change()">
+                        <option value="0.178">helium</option>
+                        <option value="0.083">hydrogen</option>
+                    </select>
+        
+                    <input id="lifting_gas_density" type="number" value="0.178" oninput="calculate_gas_volume()"><br>
+        
+                    <input type="button" onclick="calculate_gas_volume()" value="calculate">
+        
+                    <label id="gas_volume"></label>
+                </form>
+                </div>
+            </main>
     </body>
 
     <script>

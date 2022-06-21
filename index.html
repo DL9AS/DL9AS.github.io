@@ -26,194 +26,216 @@
     <script src="balloon_flight_data/launch_2020.12.30.js"></script>
     <script src="balloon_flight_data/launch_2020.11.08.js"></script>
  
-    <style>
-        body, html {
-            background: #f1f1f1;
-            
-            height:100%;
-            width:100%;
-        }
+    <!-- google fonts import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght,ital@400,0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pridi:wght,ital@200..700,0;1&display=swap" rel="stylesheet">
 
-        iframe {
-            display: block;
-            margin-right: auto;
-            margin-left: auto;
-
-            height:100%;
-            width:100%;
-        }
-
-        summary {
-            margin-top: 20px;
-            padding: 10px;
-            width: 96.5%;
-            background-color: #f1f1f1;
-            border: none;
-            box-shadow: 2px 2px 3px #bbbbbb;
-            cursor: pointer;
-        }
-        
-        .card {
-            background-color: white;
-            
-            margin-top: 20px;
-            padding: 20px;
-        }
-                
-        .osm_map { 
-            height:50vh; 
-            width:98%; 
-        }
-        
-        .altitude_chart { 
-            height:35vh; 
-            width:98%; 
-        }
-        
-        .pdf_viewer { 
-            height:80vh; 
-            width:98%; 
-        }
-        
-    </style>
+    <!-- stylesheet import -->
+    <link rel="stylesheet" href="style.css">
     
     <head>
         <title>balloon flights</title>
     </head>
 
     <body>
-        <h1 style="text-align: center;"><strong>Balloon flights</strong></h1>
-        <h3 style="text-align: center;"><strong>by Amon Schumann / DO4AS</strong></h3>
+        <header>
+            <hr>
+            <hr>
+            <hr>
+            <hr>
+                <div>
+                    <h1>Balloon flights</h1> <br/>
+                    <h2>by Amon Schumann / DO4AS</h2>
+                </div>
+            <hr>
+            <hr>
+            <hr>
+            <hr>
+        </header>
         
-        <div class="card">
-            <strong>see <a href="https://github.com/DO4AS/jufo-project-radiosonde" target="_blank">radiosonde project documentation</a></strong> 
-        </div>
-        
-        <div class="card">
-            <strong>see <a href="https://do4as.github.io/balloon_calculator/balloon_calculator.html" target="_blank">high altitude balloon calculators</a></strong> 
-        </div>
-        
-        <div class="card">
-            <h3><strong>next balloon flight:</strong></h3>
-            <p style="padding-left: 30px;"><strong>launch date:</strong>&nbsp;pending</p>
-            <p style="padding-left: 30px;"><strong>mission comment:</strong>&nbsp;pending</p>
-            <p style="padding-left: 30px;"><strong>last positions:</strong></p>
-            <div id="future" class="osm_map"></div>            
-        </div>
-        
-        <div class="card">
-            <h3><strong>eleventh balloon flight:</strong></h3>
-            <img width="100%" src="balloon_flight_data/flight-map-11.png" alt="static flight path map">         
-        </div>
-        
-        <div class="card">
-            <h3><strong>ninth balloon flight:</strong></h3>
-            <p style="padding-left: 30px;"><strong>launch date:</strong>&nbsp;13.07.2021 ~ 07:00 UTC</p>
-            <p style="padding-left: 30px;"><strong>mission comment:</strong>&nbsp;This balloon flight was intended to demonstrate the capabilities of the ultralight radiosonde. The freelift was about 1g. The balloon floated successfully for at least 6 days at an altitude of 9500m.</p>
-            <p style="padding-left: 30px;"><strong>last positions:</strong></p>
-            <div id="13.07.2021_flightpath_map" class="osm_map"></div>
+        <main>
+            <nav>
+                <div>
+                <div class="card">
+                    <h3>see</h3>  <a href="https://github.com/DO4AS/jufo-project-radiosonde" target="_blank">radiosonde project documentation</a>
+                </div>
+            </div>
+                
+            <div>
+                <div class="card">
+                    <h3>see</h3>  <a href="/balloon_calculators/" target="_blank">high altitude balloon calculators</a>
+                </div>
+            </div>
+        </nav>
 
-            <details>
-                <summary><strong>flight report day 1</strong></summary>
-                <div class="pdf_viewer">
-                    <a href="https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.13.pdf" download>download flight report day 1</a>
-                    <iframe src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.13.pdf&embedded=true" frameborder="0"></iframe>
+
+        <div class="content">
+            <div class="card">
+                <div class="info">
+                    <h3>next balloon flight</h3>
+                        <p>
+                            <b>launch date:</b>&nbsp;pending
+                                <br/>
+                            <b>mission comment:</b>&nbsp;pending
+                                <br/>
+                            <b>last positions:</b>
+                        </p>
                 </div>
-            </details>
+                <div id="future" class="osm_map"></div>            
+            </div>
             
-            <details>
-                <summary><strong>flight report day 2</strong></summary>
-                <div class="pdf_viewer">
-                    <a href="https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.14.pdf" download>download flight report day 2</a>
-                    <iframe src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.14.pdf&embedded=true" frameborder="0"></iframe>
+            <div class="card">
+                <div class="info">
+                    <h3>eleventh balloon flight</h3>
                 </div>
-            </details>
+                <img width="100%" src="balloon_flight_data/flight-map-11.png" alt="static flight path map">         
+            </div>
             
-            <details>
-                <summary><strong>flight report day 3</strong></summary>
-                <div class="pdf_viewer">
-                    <a href="https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.15.pdf" download>download flight report day 3</a>
-                    <iframe src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.15.pdf&embedded=true" frameborder="0"></iframe>
+            <div class="card">
+                <div class="info">
+                    <h3>ninth balloon flight</h3>
+                    <p>
+                        <b>launch date:</b>&nbsp;13.07.2021 ~ 07:00 UTC
+                            <br/>
+                        <b>mission comment:</b>&nbsp;This balloon flight was intended to demonstrate the capabilities of the ultralight radiosonde. The freelift was about 1g. The balloon floated successfully for at least 6 days at an altitude of 9500m.
+                            <br/>
+                        <b>last positions:</b>
+                    </p>
                 </div>
-            </details>
+                <div id="13.07.2021_flightpath_map" class="osm_map"></div>
+
+                <details>
+                    <summary>flight report day 1</summary>
+                    <div class="pdf_viewer">
+                        <a href="https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.13.pdf" download>download flight report day 1</a>
+                        <iframe src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.13.pdf&embedded=true" frameborder="0"></iframe>
+                    </div>
+                </details>
+                
+                <details>
+                    <summary>flight report day 2</summary>
+                    <div class="pdf_viewer">
+                        <a href="https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.14.pdf" download>download flight report day 2</a>
+                        <iframe src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.14.pdf&embedded=true" frameborder="0"></iframe>
+                    </div>
+                </details>
+                
+                <details>
+                    <summary>flight report day 3</summary>
+                    <div class="pdf_viewer">
+                        <a href="https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.15.pdf" download>download flight report day 3</a>
+                        <iframe src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.15.pdf&embedded=true" frameborder="0"></iframe>
+                    </div>
+                </details>
+                
+                <details>
+                    <summary>flight report day 4</summary>
+                    <div class="pdf_viewer">
+                        <a href="https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.16.pdf" download>download flight report day 4</a>
+                        <iframe src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.16.pdf&embedded=true" frameborder="0"></iframe>
+                    </div>
+                </details>
+                
+                <details>
+                    <summary>flight report day 5</summary>
+                    <div class="pdf_viewer">
+                        <a href="https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.17.pdf" download>download flight report day 5</a>
+                        <iframe src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.17.pdf&embedded=true" frameborder="0"></iframe>
+                    </div>
+                </details>
+                
+                <details>
+                    <summary>flight report day 6</summary>
+                    <div class="pdf_viewer">
+                        <a href="https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.18.pdf" download>download flight report day 6</a>
+                        <iframe src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.18.pdf&embedded=true" frameborder="0"></iframe>
+                    </div>
+                </details>
+            </div>
             
-            <details>
-                <summary><strong>flight report day 4</strong></summary>
-                <div class="pdf_viewer">
-                    <a href="https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.16.pdf" download>download flight report day 4</a>
-                    <iframe src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.16.pdf&embedded=true" frameborder="0"></iframe>
+            <div class="card">
+                <div class="info">
+                    <h3>unsuccessful seventh balloon flight</h3>
+                    <p>
+                        <b>launch date:</b>&nbsp;15.05.2021 ~ 07:30 UTC
+                            <br/>
+                        <b>mission comment:</b>&nbsp;This balloon flight had a little too much freelift. The balloon burst shortly before it reached the floating altitude.
+                            <br/>
+                        <b>last positions:</b>
+                    </p>
                 </div>
-            </details>
+                <div id="15.05.2021_flightpath_map" class="osm_map"></div>
+                
+                <details>
+                    <summary>flight report day 1</summary>
+                    <div class="pdf_viewer">
+                        <a href="https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.05.15.pdf" download>download flight report day 1</a>
+                        <iframe src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.05.15.pdf&embedded=true" frameborder="0"></iframe>
+                    </div>
+                </details>
+            </div>
             
-            <details>
-                <summary><strong>flight report day 5</strong></summary>
-                <div class="pdf_viewer">
-                    <a href="https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.17.pdf" download>download flight report day 5</a>
-                    <iframe src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.17.pdf&embedded=true" frameborder="0"></iframe>
-                </div>
-            </details>
+            <div class="card">
+                <div class="info">
+                    <h3>unsuccessful sixth balloon flight</h3>
+                    <p>
+                        <b>launch date:</b>&nbsp;31.03.2021 ~ 08:00 UTC
+                            <br/>
+                        <b>mission comment:</b>&nbsp;This balloon flight represented a targeted test of the strength of a commercial foil balloon. The foil balloon successfully burst at a flight altitude of about 9000m.
+                            <br/>
+                        <b>last positions:</b>
+                    </p>
+                </div> 
+                <div id="13.03.2021_flightpath_map" class="osm_map"></div>
+                <!-- <div id="13.03.2021_altitude_chart" class="altitude_chart"></div> -->
+                
+                <details>
+                    <summary>flight report day 1</summary>
+                    <div class="pdf_viewer">
+                        <a href="https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.03.31.pdf" download>download flight report day 1</a>
+                        <iframe src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.03.31.pdf&embedded=true" frameborder="0"></iframe>
+                    </div>
+                </details>
+            </div>
             
-            <details>
-                <summary><strong>flight report day 6</strong></summary>
-                <div class="pdf_viewer">
-                    <a href="https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.18.pdf" download>download flight report day 6</a>
-                    <iframe src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.07.18.pdf&embedded=true" frameborder="0"></iframe>
+            <div class="card">
+                <div class="info">
+                    <h3>second balloon flight</h3>
+                    <p>
+                        <b>launch date:</b>&nbsp;30.12.2020 ~ 08:00 UTC
+                            <br/>
+                        <b>mission comment:</b>&nbsp;This balloon flight showed the possibilities of foil balloons and ultralight radiosondes. The radiosonde has traveled a total of 13 days in the stratopshare.
+                            <br/>
+                        <b>last positions:</b>
+                    </p>
                 </div>
-            </details>
-        </div>
+                <div id="30.12.2020_flightpath_map" class="osm_map"></div>
+            </div>
+            
+            <div class="card">     
+                <div class="info">
+                    <h3>first balloon flight</h3>
+                    <p>
+                        <b>launch date:</b>&nbsp;08.11.2020 ~ 07:00 UTC
+                            <br/>
+                        <b>mission comment:</b>&nbsp;The first balloon flight was successful, but had too little freelift.
+                            <br/>
+                        <b>last positions:</b>
+                    </p>
+                </div>
+                <div id="08.11.2020_flightpath_map" class="osm_map"></div>
+            </div>
+        </main>
         
-        <div class="card">
-            <h3><strong>unsuccessful seventh balloon flight:</strong></h3>
-            <p style="padding-left: 30px;"><strong>launch date:</strong>&nbsp;15.05.2021 ~ 07:30 UTC</p>
-            <p style="padding-left: 30px;"><strong>mission comment:</strong>&nbsp;This balloon flight had a little too much freelift. The balloon burst shortly before it reached the floating altitude.</p>
-            <p style="padding-left: 30px;"><strong>last positions:</strong></p>
-            <div id="15.05.2021_flightpath_map" class="osm_map"></div>
-            
-            <details>
-                <summary><strong>flight report day 1</strong></summary>
-                <div class="pdf_viewer">
-                    <a href="https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.05.15.pdf" download>download flight report day 1</a>
-                    <iframe src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.05.15.pdf&embedded=true" frameborder="0"></iframe>
-                </div>
-            </details>
-        </div>
+        <footer>
+            <p>Note: This balloon flight archive will be expanded in the future.</p>
+            <p><i>last update: 11.02.2022</i></p>
+        </footer>
         
-        <div class="card">
-            <h3><strong>unsuccessful sixth balloon flight:</strong></h3>
-            <p style="padding-left: 30px;"><strong>launch date:</strong>&nbsp;31.03.2021 ~ 08:00 UTC</p>
-            <p style="padding-left: 30px;"><strong>mission comment:</strong>&nbsp;This balloon flight represented a targeted test of the strength of a commercial foil balloon. The foil balloon successfully burst at a flight altitude of about 9000m.</p>
-            <p style="padding-left: 30px;"><strong>last positions:</strong></p>
-            <div id="13.03.2021_flightpath_map" class="osm_map"></div>
-            <!-- <div id="13.03.2021_altitude_chart" class="altitude_chart"></div> -->
-            
-            <details>
-                <summary><strong>flight report day 1</strong></summary>
-                <div class="pdf_viewer">
-                    <a href="https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.03.31.pdf" download>download flight report day 1</a>
-                    <iframe src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/DO4AS/DO4AS.github.io/main/balloon_flight_data/flight-report_2021.03.31.pdf&embedded=true" frameborder="0"></iframe>
-                </div>
-            </details>
-        </div>
-        
-        <div class="card">
-            <h3><strong>second balloon flight:</strong></h3>
-            <p style="padding-left: 30px;"><strong>launch date:</strong>&nbsp;30.12.2020 ~ 08:00 UTC</p>
-            <p style="padding-left: 30px;"><strong>mission comment:</strong>&nbsp;This balloon flight showed the possibilities of foil balloons and ultralight radiosondes. The radiosonde has traveled a total of 13 days in the stratopshare.</p>
-            <p style="padding-left: 30px;"><strong>last positions:</strong></p>
-            <div id="30.12.2020_flightpath_map" class="osm_map"></div>
-        </div>
-        
-        <div class="card">     
-            <h3><strong>first balloon flight:</strong></h3>
-            <p style="padding-left: 30px;"><strong>launch date:</strong>&nbsp;08.11.2020 ~ 07:00 UTC</p>
-            <p style="padding-left: 30px;"><strong>mission comment:</strong>&nbsp;The first balloon flight was successful, but had too little freelift.</p>
-            <p style="padding-left: 30px;"><strong>last positions:</strong></p>
-            <div id="08.11.2020_flightpath_map" class="osm_map"></div>
-        </div>
-        
-        <p>Note: This balloon flight archive will be expanded in the future.</p>
-        <p><i>latst update: 11.02.2022</i></p>
     </body>
+</div>
     
     <script>                
         // add map for next balloon flight
